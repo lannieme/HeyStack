@@ -1,0 +1,40 @@
+company:
+  name: HeyStack
+  logo: heystack.png
+product_hmw: How might we streamline the information retrieval process for employees to make them more productive?
+tags:
+  - B2B
+  - Information Retrieval
+  - SASS
+
+product_narrative: |
+  Heystack is your virtual analyst that automates internal data retrieval for your employees.
+team:
+  picture: teamphoto.jpg
+  roster:
+  - name: David Gu
+    email: zg245@cornell.edu
+    picture: david.jpg
+    program: CS
+  - name: Lannie Miao
+    email: ym232@cornell.edu
+    picture: lannie.png
+    program: CM
+  - name: Kaditya Naidu
+    email: ksn23@cornell.edu
+    picture: Kad.png
+    program: MBA
+  - name: Neel Parekh
+    email: np423@cornell.edu
+    picture: Neel.png
+    program: CS
+
+assets:
+- title: Sprint 1
+  url: http://cornelltech.io/spice-up-your-personal-privacy-with-pepr/
+- title: Sprint 2
+  url: http://cornelltech.io/health-apps-on-steroids/
+- title: Sprint 3
+  url: http://cornelltech.io/storybot/
+- title: Final
+  url: http://cornelltech.io/storybot/
