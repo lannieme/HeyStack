@@ -73,22 +73,26 @@
 											  <b-btn class="tooltip-target btn btn-primary" role="button">Edit</b-btn> 
 
 											  <template slot="popover">
-											    <ul>
-											     <li><b-btn @click="showChart=true" variant="primary" class="popover-btn">Change chart type</b-btn>
+											  	<b-btn @click="showChart=true" class="popover-btn btn-outline-info">Change Chart Type</b-btn>
+											  	<b-btn @click="showTheme=true" class="popover-btn btn-outline-info">Change Color Theme</b-btn>
+											    <!-- <ul>
+											     <li><b-btn @click="showChart=true" class="popover-btn btn-outline-info">Change Chart Type</b-btn>
 											     </li>
-											     <li><b-btn @click="showTheme=true" variant="primary" class="popover-btn">Change color theme</b-btn></li>
-											    </ul>
-											    <b-btn class="btn btn-primary" v-close-popover>Close</b-btn>
+											     <li><b-btn @click="showTheme=true" class="popover-btn btn-outline-info">Change Color Theme</b-btn></li>
+											    </ul> -->
+											    <!-- <b-btn class="btn btn-outline-info" v-close-popover>X</b-btn> -->
+											    <div class="popover-close-wrapper"><button type="button" class="close popover-close" aria-label="Close" v-close-popover>
+												  <span aria-hidden="true">&times;</span>
+												</button></div>
 											  </template>
 											</v-popover>
-											<a href="#" class="btn btn-primary" role="button">
+											<a href="/dist/graph.png" download class="btn btn-primary" role="button">
 											Download
 											</a> 
 										</p>
 										</div>
 					                </div>
-				                </div><!-- 
-				                <div class="text">Hi, Alexis! How can I help you?</div> -->
+				                </div>
 				                
 				            </div>
 				        </li>
@@ -110,14 +114,16 @@
 
 											  <template slot="popover">
 											    <ul>
-											     <li><b-btn @click="showChart=true" variant="primary" class="popover-btn">Change chart type</b-btn>
+											     <li><b-btn @click="showChart=true" class="popover-btn btn-outline-info">Change Chart Type</b-btn>
 											     </li>
-											     <li><b-btn @click="showTheme=true" variant="primary" class="popover-btn">Change color theme</b-btn></li>
+											     <li><b-btn @click="showTheme=true" class="popover-btn btn-outline-info">Change Color Theme</b-btn></li>
 											    </ul>
-											    <b-btn class="btn btn-primary" v-close-popover>Close</b-btn>
+											    <div class="popover-close-wrapper"><button type="button" class="close popover-close" aria-label="Close" v-close-popover>
+												  <span aria-hidden="true">&times;</span>
+												</button></div>
 											  </template>
 											</v-popover>
-											<a href="#" class="btn btn-primary" role="button">
+											<a href="/dist/graph_color.png" download class="btn btn-primary" role="button">
 											Download
 											</a> 
 										</p>
@@ -155,12 +161,9 @@
 				        </li>
 
 				        <li v-if="showThird" class="first lastQ">
-				            
-				            
 				            <div class="main self">
 				            		<div class="bubble you">What category of articles are the most popular in California? By total engagement (like, comments & shares) </div>
 					                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
-					                
 				            </div>
 				        </li>
 
@@ -214,7 +217,7 @@
 					        <b-col><textarea class="col-10" placeholder="Enter your question here.." ></textarea></b-col>
 
 					       <!-- <b-col><form><input type="text" ref="my_input"></form></b-col> -->
-					        <b-col cols="4" class="add"><b-button type="submit" variant="primary"  v-on:click="counter +=1" class="send-button">Send</b-button></b-col>
+					        <b-col cols="4" class="add"><button type="submit" v-on:click="HScounter +=1" class="hs-button">></button><b-button type="submit" variant="primary"  v-on:click="counter +=1" class="send-button">Send</b-button></b-col>
 					    </b-row>
 					    
 					</div>
@@ -226,10 +229,10 @@
 		        	<div class="flex-item">Profile</div>
 	        	</div>
 	        	<div class="download" v-if="showSecond">
-	        		<img class="avatar" width="280px" src="../assets/downloadfile.png" />
+	        		<a href="/dist/graph.png" download><img class="avatar" width="280px" src="../assets/downloadfile.png" /></a>
 	        	</div>
 	        	<div class="download" v-if="showNewColor">
-	        		<img class="avatar" width="280px" src="../assets/downloadfile_2.png" />
+	        		<a href="/dist/graph_color.png" download><img class="avatar" width="280px" src="../assets/downloadfile_2.png" /></a>
 	        	</div>
 	    	</b-col>
     	</b-row>
@@ -254,6 +257,7 @@ export default {
   		first: false,
   		second: false,
   		counter: 0,
+  		HScounter: 0,
   		editShow: false,
   		showPopper4: true,
   		showChart: false,
@@ -276,10 +280,10 @@ export default {
   		return this.counter > 0? true: false;
   	},
   	showSecond(){
-  		return this.counter > 1? true: false;
+  		return this.HScounter > 0? true: false;
   	},
   	showThird(){
-  		return this.counter > 2? true: false;
+  		return this.counter > 1? true: false;
   	},
   },
   methods:{
@@ -297,6 +301,25 @@ export default {
 <style>
 .lastQ{
 	display: inline-block;
+}
+
+.hs-button{
+	background: none;
+    border: none;
+    cursor: default !important;
+    color: black;
+    outline:none;
+}
+.hs-button:hover{
+	/*background: none;
+    border: none;*/
+    cursor: default !important;
+    
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    overflow: hidden;
+    outline:none;
 }
 .caption-left{
 	padding-top: 20px;
@@ -530,6 +553,18 @@ export default {
 .popover {
 	border: 0;
 }
+
+.popover-close-wrapper{
+	display: block;
+    width: 200px;
+    margin: 10px;
+    padding-bottom: 10px;
+} 
+
+.popover-close{
+	width: 200px;
+}
+
 .tooltip {
   display: block !important;
   z-index: 10000;
@@ -634,6 +669,10 @@ export default {
   visibility: visible;
   opacity: 1;
   transition: opacity .15s;
+}
+
+.tooltip-inner {
+	max-width: 250px;
 }
 
 </style>

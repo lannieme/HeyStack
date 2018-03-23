@@ -15,12 +15,6 @@
             <b-list-group class="list">
                 <b-list-group-item class="d-flex justify-content-between align-items-center">
                     
-                    <img src="../assets/HSavatar60.png" fluid alt="Responsive image" class="pull-left photo"/>
-                    <p class="title">health of published articles</p>
-                    <b-badge variant="primary" class="date" pill>4:34pm</b-badge>
-                </b-list-group-item>
-                <b-list-group-item class="d-flex justify-content-between align-items-center">
-                    
                     <img src="../assets/convo2.png" fluid alt="Responsive image" class="pull-left photo"/>
                     <p class="title">Engagement rate</p>
                     <b-badge variant="primary" class="date" pill>March 3rd</b-badge>

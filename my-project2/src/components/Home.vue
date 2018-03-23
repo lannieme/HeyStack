@@ -26,19 +26,19 @@
           <b-list-group>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Question 1</h5>
+                <h5 class="mb-1">1. How many subscribers do we have this month?</h5>
                 <small>3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Question 2</h5>
+                <h5 class="mb-1">2. What is the most popular story of last year?</h5>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Question 3</h5>
+                <h5 class="mb-1">3. What is the CAGR of our projected revenue in 5 years?</h5>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
@@ -175,12 +175,7 @@ form input {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/*.photo {
-  border-radius: 45px;
-  margin-right: 20px;
-  width: 90px;
-  height:90px
-}*/
+
 .past-convo .form-control { 
   width:30%;
   display: inline-block;
