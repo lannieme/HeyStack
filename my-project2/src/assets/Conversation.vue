@@ -76,7 +76,43 @@
 											    <ul>
 											     <li><b-btn @click="showChart=true" variant="primary" class="popover-btn">Change chart type</b-btn>
 											     </li>
-											     <li><b-btn @click="showChart=true" variant="primary" class="popover-btn">Change color theme</b-btn></li>
+											     <li><b-btn @click="showTheme=true" variant="primary" class="popover-btn">Change color theme</b-btn></li>
+											    </ul>
+											    <b-btn class="btn btn-primary" v-close-popover>Close</b-btn>
+											  </template>
+											</v-popover>
+											<a href="#" class="btn btn-primary" role="button">
+											Download
+											</a> 
+										</p>
+										</div>
+					                </div>
+				                </div><!-- 
+				                <div class="text">Hi, Alexis! How can I help you?</div> -->
+				                
+				            </div>
+				        </li>
+
+				        <li v-if="showNewColor"  class="panel">
+				            <p class="time">
+				                </br>
+				            </p>
+				            <div class="main float-left panel-body">
+				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
+				                <div class="bubble me">
+				                	<p>Here is your new graph.</p>
+					                <div class="thumbnail">
+					                	<img class="avatar" src="../assets/graph.png" />
+					                	<div class="caption caption-left">
+										<p>
+											<v-popover offset="16">
+											  <b-btn class="tooltip-target btn btn-primary" role="button">Edit</b-btn> 
+
+											  <template slot="popover">
+											    <ul>
+											     <li><b-btn @click="showChart=true" variant="primary" class="popover-btn">Change chart type</b-btn>
+											     </li>
+											     <li><b-btn @click="showTheme=true" variant="primary" class="popover-btn">Change color theme</b-btn></li>
 											    </ul>
 											    <b-btn class="btn btn-primary" v-close-popover>Close</b-btn>
 											  </template>
@@ -95,39 +131,24 @@
 
 				        <li>
 			        	<b-modal v-model="showChart"
-				             title="Change Chart Type"
-				             :header-bg-variant="headerBgVariant"
-				             :header-text-variant="headerTextVariant"
-				             :body-bg-variant="bodyBgVariant"
-				             :body-text-variant="bodyTextVariant"
-				             :footer-bg-variant="footerBgVariant"
-				             :footer-text-variant="footerTextVariant">
+				             title="Change Chart Type">
 					       <b-container fluid>
+					       	<b-row class="mb-1 text-center">
+					       		<b-col cols="12"><strong>For your data, we recommend using pie chart.</strong></b-col>
+					       	</b-row>
 					         <b-row class="mb-1 text-center">
-					           <b-col cols="3"> </b-col>
-					           <b-col>Background</b-col>
-					           <b-col>Text</b-col>
+					           <b-col cols="3"> <input id="radio-1" name="radio" type="radio"><label  for="radio-2" class="radio-label"> Bar Chart</label></b-col>
+					           <b-col><img class="avatar" src="../assets/graph.png" /></b-col>
 					         </b-row>
 					         <b-row class="mb-1">
-					           <b-col cols="3">Header</b-col>
-					           <b-col><b-form-select :options="variants" v-model="headerBgVariant" /></b-col>
-					           <b-col><b-form-select :options="variants" v-model="headerTextVariant" /></b-col>
-					         </b-row>
-					         <b-row class="mb-1">
-					           <b-col cols="3">Body</b-col>
-					           <b-col><b-form-select :options="variants" v-model="bodyBgVariant" /></b-col>
-					           <b-col><b-form-select :options="variants" v-model="bodyTextVariant" /></b-col>
-					         </b-row>
-					         <b-row>
-					           <b-col cols="3">Footer</b-col>
-					           <b-col><b-form-select :options="variants" v-model="footerBgVariant" /></b-col>
-					           <b-col><b-form-select :options="variants" v-model="footerTextVariant" /></b-col>
+					           <b-col cols="3"> <input id="radio-2" name="radio" type="radio"><label  for="radio-2" class="radio-label"> Pie Chart</label></b-col>
+					           <b-col><img class="avatar" src="../assets/graph.png" /></b-col>
 					         </b-row>
 					       </b-container>
 					       <div slot="modal-footer" class="w-100">
-					         <p class="float-left">Modal Footer Content</p>
-					         <b-btn size="sm" class="float-right" variant="primary" @click="show=false">
-					           Close
+					         <p class="float-left">Generate New Graph</p>
+					         <b-btn size="sm" class="float-right" variant="primary" @click="showNewGraph=true">
+					           Confirm
 					         </b-btn>
 					       </div>
 					    </b-modal>
@@ -144,57 +165,44 @@
 				        </li>
 
 				        <li>
-				        	<popover name="default">
-    <div slot="face">
-        <a href="#" class="btn btn-primary" role="button" @click="editShow = !editShow">
-											Edit
-											</a> 
-    </div>
-    <div slot="content">
-        <ul>
-            <li><a href="https://www.npmjs.com/~jfusco" target="_blank">npmjs.com</a></li>
-            <li><a href="https://github.com/JFusco" target="_blank">github.com</a></li>
-        </ul>
-    </div>
-</popover>
+			        	<b-modal v-model="showTheme"
+				             title="Change Chart Color Theme"
+				             :header-bg-variant="headerBgVariant"
+				             :header-text-variant="headerTextVariant"
+				             :body-bg-variant="bodyBgVariant"
+				             :body-text-variant="bodyTextVariant"
+				             :footer-bg-variant="footerBgVariant"
+				             :footer-text-variant="footerTextVariant">
+					       <b-container fluid>
+					         <b-row class="mb-1 text-center">
+					           <b-col cols="3"> </b-col>
+					           <b-col>Background</b-col>
+					           <b-col>Text</b-col>
+					         </b-row>
+					         <b-row class="mb-1">
+					           <b-col cols="3">Title</b-col>
+					           <b-col><b-form-select :options="variants" v-model="headerBgVariant" /></b-col>
+					           <b-col><b-form-select :options="variants" v-model="headerTextVariant" /></b-col>
+					         </b-row>
+					         <b-row class="mb-1">
+					           <b-col cols="3">Body</b-col>
+					           <b-col><b-form-select :options="variants" v-model="bodyBgVariant" /></b-col>
+					           <b-col><b-form-select :options="variants" v-model="bodyTextVariant" /></b-col>
+					         </b-row>
+					         <b-row>
+					           <b-col cols="3">Fields</b-col>
+					           <b-col><b-form-select :options="variants" v-model="footerBgVariant" /></b-col>
+					           <b-col><b-form-select :options="variants" v-model="footerTextVariant" /></b-col>
+					         </b-row>
+					       </b-container>
+					       <div slot="modal-footer" class="w-100">
+					         <p class="float-left">Generate New Graph</p>
+					         <b-btn size="sm" class="float-right" variant="primary" @click="showNewColor=true">
+					           Confirm
+					         </b-btn>
+					       </div>
+					    </b-modal>
 				        </li>
-
-				        <li>
-				        	<v-popover offset="16">
-  <b-btn class="tooltip-target btn " role="button">Edit</b-btn> 
-
-  <template slot="popover">
-    <ul>
-     <li>Change chart type</li>
-     <li>Change color theme</li>
-    </ul>
-    <b-btn class="btn btn-primary" v-close-popover>Close</b-btn>
-  </template>
-</v-popover>
-				        </li>
-
-				        <!-- <li>
-				        	<popper
-    :show-popper.sync="showPopper4"
-    content="Lorem ipsum dolor"
-    placement="bottom"
-    close-button="1">
-    
-      <div slot="close-button">
-        <i class="glyphicon glyphicon-remove"></i>
-      </div>
-      
-      <div slot="content">
-        <h2><a href="https://github.com/antongorodezkiy/vue-popper-component" target="_blank"><i class="glyphicon glyphicon-star"></i></a> <b>us</b> <i>on</i> <u>github</u>!</h2>
-        <a @click.prevent="showPopper4 = false" href="#">Close this popover from the content!</a>
-      </div>
-    
-      <button class="btn btn-default" @click.prevent="showPopper4 = !showPopper4">
-        Click to open popover on the bottom
-      </button>
-  </popper>
-</li> -->
-
 				    </ul>
 	        	</div> <!-- end of main-convo -->
 
@@ -246,6 +254,9 @@ export default {
   		editShow: false,
   		showPopper4: true,
   		showChart: false,
+  		showTheme: false,
+  		showNewColor: false,
+  		showNewGraph: false,
   		variants: [
         'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'dark'
 		],
