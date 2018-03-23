@@ -1,5 +1,5 @@
 <template>
-	<b-container class="conversation">
+	<b-container class="conversation" >
 		<b-row class="text-center">
 	        <b-col cols="8 LeftSideBar">
 	        	<div class="leftside-header border-bottom">
@@ -12,8 +12,8 @@
 		        	</div>
 	        	</div>
 
-	        	<div class="main-convo">
-	        		<ul>
+	        	<div class="main-convo" ref="main-convo" v-chat-scroll>
+	        		<ul v-chat-scroll>
 				        <li>
 				            <p class="time">
 				                <span>10:27am</span>
@@ -31,8 +31,7 @@
 				            </p>
 				            <div class="main float-left">
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
-				                <div class="bubble me">Hi, Alexis! How can I help you?</div><!-- 
-				                <div class="text">Hi, Alexis! How can I help you?</div> -->
+				                <div class="bubble me">Hi, Alexis! How can I help you?</div>
 				            </div>
 				        </li>
 
@@ -43,7 +42,6 @@
 				            </p>
 				            <div class="main self">
 				                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
-				                <!-- <div class="text">Hey,Stack!</div> -->
 				                <div class="bubble you">Where is biggest audience from geographically and demographically?</div>
 				            </div>
 				        </li>
@@ -59,15 +57,80 @@
 				            </div>
 				        </li>
 
-				        <li v-if="showSecond" >
+				        <li v-if="showSecond"  class="panel">
 				            <p class="time">
 				                </br>
 				            </p>
-				            <div class="main float-left">
+				            <div class="main float-left panel-body">
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
-				                <div class="bubble me"><img class="avatar" src="../assets/graph.png" /></div><!-- 
+				                <div class="bubble me">
+					                <div class="thumbnail">
+					                	<img class="avatar" src="../assets/graph.png" />
+					                	<div class="caption caption-left">
+										<p> <strong>Based on your data, we recommend pie chart.</strong></p>
+										<p>
+											<v-popover offset="16">
+											  <b-btn class="tooltip-target btn btn-primary" role="button">Edit</b-btn> 
+
+											  <template slot="popover">
+											    <ul>
+											     <li><b-btn @click="showChart=true" variant="primary" class="popover-btn">Change chart type</b-btn>
+											     </li>
+											     <li><b-btn @click="showChart=true" variant="primary" class="popover-btn">Change color theme</b-btn></li>
+											    </ul>
+											    <b-btn class="btn btn-primary" v-close-popover>Close</b-btn>
+											  </template>
+											</v-popover>
+											<a href="#" class="btn btn-primary" role="button">
+											Download
+											</a> 
+										</p>
+										</div>
+					                </div>
+				                </div><!-- 
 				                <div class="text">Hi, Alexis! How can I help you?</div> -->
+				                
 				            </div>
+				        </li>
+
+				        <li>
+			        	<b-modal v-model="showChart"
+				             title="Change Chart Type"
+				             :header-bg-variant="headerBgVariant"
+				             :header-text-variant="headerTextVariant"
+				             :body-bg-variant="bodyBgVariant"
+				             :body-text-variant="bodyTextVariant"
+				             :footer-bg-variant="footerBgVariant"
+				             :footer-text-variant="footerTextVariant">
+					       <b-container fluid>
+					         <b-row class="mb-1 text-center">
+					           <b-col cols="3"> </b-col>
+					           <b-col>Background</b-col>
+					           <b-col>Text</b-col>
+					         </b-row>
+					         <b-row class="mb-1">
+					           <b-col cols="3">Header</b-col>
+					           <b-col><b-form-select :options="variants" v-model="headerBgVariant" /></b-col>
+					           <b-col><b-form-select :options="variants" v-model="headerTextVariant" /></b-col>
+					         </b-row>
+					         <b-row class="mb-1">
+					           <b-col cols="3">Body</b-col>
+					           <b-col><b-form-select :options="variants" v-model="bodyBgVariant" /></b-col>
+					           <b-col><b-form-select :options="variants" v-model="bodyTextVariant" /></b-col>
+					         </b-row>
+					         <b-row>
+					           <b-col cols="3">Footer</b-col>
+					           <b-col><b-form-select :options="variants" v-model="footerBgVariant" /></b-col>
+					           <b-col><b-form-select :options="variants" v-model="footerTextVariant" /></b-col>
+					         </b-row>
+					       </b-container>
+					       <div slot="modal-footer" class="w-100">
+					         <p class="float-left">Modal Footer Content</p>
+					         <b-btn size="sm" class="float-right" variant="primary" @click="show=false">
+					           Close
+					         </b-btn>
+					       </div>
+					    </b-modal>
 				        </li>
 
 				        <li v-if="showThird" class="first">
@@ -79,6 +142,58 @@
 				                <div class="bubble you">What category of articles are the most popular in California? By total engagement (like, comments & shares) </div>
 				            </div>
 				        </li>
+
+				        <li>
+				        	<popover name="default">
+    <div slot="face">
+        <a href="#" class="btn btn-primary" role="button" @click="editShow = !editShow">
+											Edit
+											</a> 
+    </div>
+    <div slot="content">
+        <ul>
+            <li><a href="https://www.npmjs.com/~jfusco" target="_blank">npmjs.com</a></li>
+            <li><a href="https://github.com/JFusco" target="_blank">github.com</a></li>
+        </ul>
+    </div>
+</popover>
+				        </li>
+
+				        <li>
+				        	<v-popover offset="16">
+  <b-btn class="tooltip-target btn " role="button">Edit</b-btn> 
+
+  <template slot="popover">
+    <ul>
+     <li>Change chart type</li>
+     <li>Change color theme</li>
+    </ul>
+    <b-btn class="btn btn-primary" v-close-popover>Close</b-btn>
+  </template>
+</v-popover>
+				        </li>
+
+				        <!-- <li>
+				        	<popper
+    :show-popper.sync="showPopper4"
+    content="Lorem ipsum dolor"
+    placement="bottom"
+    close-button="1">
+    
+      <div slot="close-button">
+        <i class="glyphicon glyphicon-remove"></i>
+      </div>
+      
+      <div slot="content">
+        <h2><a href="https://github.com/antongorodezkiy/vue-popper-component" target="_blank"><i class="glyphicon glyphicon-star"></i></a> <b>us</b> <i>on</i> <u>github</u>!</h2>
+        <a @click.prevent="showPopper4 = false" href="#">Close this popover from the content!</a>
+      </div>
+    
+      <button class="btn btn-default" @click.prevent="showPopper4 = !showPopper4">
+        Click to open popover on the bottom
+      </button>
+  </popper>
+</li> -->
 
 				    </ul>
 	        	</div> <!-- end of main-convo -->
@@ -110,16 +225,36 @@
 	</b-container>
 </template>
 
-<script>
+<script type="text/babel">
+
+import VuePopper from 'vue-popper-component'
+import popover from 'vue-popover'
+import VTooltip from 'v-tooltip'
+
 export default {
   name: 'conversation',
   components: {
+  	popover,
+  	'popper': VuePopper
+  	 
   },
   data: function(){
   	return{
   		first: false,
   		second: false,
   		counter: 0,
+  		editShow: false,
+  		showPopper4: true,
+  		showChart: false,
+  		variants: [
+        'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'dark'
+		],
+		headerBgVariant: 'dark',
+		headerTextVariant: 'light',
+		bodyBgVariant: 'light',
+		bodyTextVariant: 'dark',
+		footerBgVariant: 'warning',
+		footerTextVariant: 'dark'
   	}
   },
   computed:{
@@ -134,9 +269,11 @@ export default {
   	},
   },
   methods:{
-    getFormValues () {
-      this.output = this.$refs.my_input.value
-    }
+    // scrollToEnd: function() {    	
+    //   var container = this.$refs["main-convo"];
+    //   // console.log(this.$refs);
+    //   container.scrollTop = container.scrollHeight;
+    // },
   }
 }
 
@@ -144,6 +281,26 @@ export default {
 </script>
 
 <style>
+.caption-left{
+	padding-top: 20px;
+	opacity: 0.9;
+	background-color: #D6D6D6;
+	color: #38ADA9;
+}
+
+.caption-left p{
+	color: black;
+}
+
+.caption-left .btn-primary{
+	background-color: #079992;
+  	border-color: #079992;
+}
+
+.caption-left .btn-primary:hover{
+	background-color: #065652;
+  	border-color: #065652;
+}
 
 .download{
 	margin-top: 20px;
@@ -338,6 +495,123 @@ export default {
 	background-color:#dbecff;
     box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
     right: -9px;    
+}
+
+.v-popover {
+	display: inline-block;
+}
+
+.popover-btn{
+	padding: 0 7px;
+	margin: 5px 0;
+}
+.popover {
+	border: 0;
+}
+.tooltip {
+  display: block !important;
+  z-index: 10000;
+}
+
+.tooltip .tooltip-inner {
+  background: black;
+  color: white;
+  border-radius: 16px;
+  padding: 5px 10px 4px;
+}
+
+.tooltip .tooltip-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+  border-color: black;
+  z-index: 1;
+}
+
+.tooltip[x-placement^="top"] {
+  margin-bottom: 5px;
+}
+
+.tooltip[x-placement^="top"] .tooltip-arrow {
+  border-width: 5px 5px 0 5px;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  bottom: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tooltip[x-placement^="bottom"] {
+  margin-top: 5px;
+}
+
+.tooltip[x-placement^="bottom"] .tooltip-arrow {
+  border-width: 0 5px 5px 5px;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+  top: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tooltip[x-placement^="right"] {
+  margin-left: 5px;
+}
+
+.tooltip[x-placement^="right"] .tooltip-arrow {
+  border-width: 5px 5px 5px 0;
+  border-left-color: transparent !important;
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+  left: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tooltip[x-placement^="left"] {
+  margin-right: 5px;
+}
+
+.tooltip[x-placement^="left"] .tooltip-arrow {
+  border-width: 5px 0 5px 5px;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  right: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tooltip.popover .popover-inner {
+  background: #EEEEEE;
+  color: black;
+  padding: 24px;
+  border-radius: 5px;
+  box-shadow: 0 5px 30px rgba(0,0,0,.1);
+}
+
+.tooltip.popover .popover-arrow {
+  border-color: #EEEEEE;
+}
+
+.tooltip[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .15s, visibility .15s;
+}
+
+.tooltip[aria-hidden='false'] {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .15s;
 }
 
 </style>
