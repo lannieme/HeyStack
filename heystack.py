@@ -76,14 +76,15 @@ class HeyStack (object):
                     days = 28
                 else:
                     days = 31
-                for cur_day in range(days):
-                    if cur_day < 10:
-                        cur_day = "0" + str(cur_day)
-                    result.append(str(month)+"/"+str(cur_day)+"/"+str(year))
+                for cur_day in range(1, days):
+                    # result.append(str(year) + "-" + ""month + "-" + str(cur_day))
+                    date_string = '-'.join([str(year),'{:02}'.format(month),'{:02}'.format(cur_day)])
+                    result.append(date_string)
+        change_format = "BETWEEN " + result[0] + " AND " + result[-1]
 
         #TODO: case when he wants month in last year
 
-        return result
+        return change_format
 
     def get_select(self, input):
         attribute_list = ["city", "state", "country", "profit", "revenue"]
