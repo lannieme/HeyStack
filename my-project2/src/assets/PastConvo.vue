@@ -68,12 +68,9 @@ h1 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/*.photo {
-  border-radius: 45px;
-  margin-right: 20px;
-  width: 90px;
-  height:90px
-}*/
+.badge-primary{
+    background-color: #7DC9C7;
+}
 .past-convo .form-control { 
   width:30%;
   display: inline-block;

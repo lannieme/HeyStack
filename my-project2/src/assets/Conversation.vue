@@ -42,7 +42,7 @@
 				            </p>
 				            <div class="main self">
 				                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
-				                <div class="bubble you">Where is biggest audience from geographically and demographically?</div>
+				                <div class="bubble you">In which state did we generate the most revenue last month?</div>
 				            </div>
 				        </li>
 
@@ -52,7 +52,7 @@
 				            </p>
 				            <div class="main float-left">
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
-				                <div class="bubble me">In 2017, the biggest audience are from California. </br>I also generated a pie chart for you to better represent the data.</div><!-- 
+				                <div class="bubble me">Last month, California generated the most revenue - 40%. </br>I also generated a bar chart for you to better represent the data.</div><!-- 
 				                <div class="text">Hi, Alexis! How can I help you?</div> -->
 				            </div>
 				        </li>
@@ -65,22 +65,17 @@
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
 				                <div class="bubble me chart">
 					                <div class="thumbnail">
-					                	<img class="avatar" src="../assets/graph.png" />
+					                	<img class="avatar" src="../assets/graph_bar.png" />
 					                	<div class="caption caption-left">
-										<p> <strong>Based on your data, we recommend pie chart.</strong></p>
+										<p> <strong>Based on your data, we recommend bar chart.</strong></p>
 										<p>
 											<v-popover offset="16">
 											  <b-btn class="tooltip-target btn btn-primary" role="button">Edit</b-btn> 
 
 											  <template slot="popover">
-											  	<b-btn @click="showChart=true" class="popover-btn btn-outline-info">Change Chart Type</b-btn>
-											  	<b-btn @click="showTheme=true" class="popover-btn btn-outline-info">Change Color Theme</b-btn>
-											    <!-- <ul>
-											     <li><b-btn @click="showChart=true" class="popover-btn btn-outline-info">Change Chart Type</b-btn>
-											     </li>
-											     <li><b-btn @click="showTheme=true" class="popover-btn btn-outline-info">Change Color Theme</b-btn></li>
-											    </ul> -->
-											    <!-- <b-btn class="btn btn-outline-info" v-close-popover>X</b-btn> -->
+											  	<b-btn @click="showChart=true" class="popover-btn btn-outline-info" v-close-popover>Change Chart Type</b-btn>
+											  	<b-btn @click="showTheme=true" class="popover-btn btn-outline-info" v-close-popover>Change Color Theme</b-btn>
+											  
 											    <div class="popover-close-wrapper"><button type="button" class="close popover-close" aria-label="Close" v-close-popover>
 												  <span aria-hidden="true">&times;</span>
 												</button></div>
@@ -114,9 +109,9 @@
 
 											  <template slot="popover">
 											    <ul>
-											     <li><b-btn @click="showChart=true" class="popover-btn btn-outline-info">Change Chart Type</b-btn>
+											     <li><b-btn @click="showChart=true" class="popover-btn btn-outline-info" v-close-popover>Change Chart Type</b-btn>
 											     </li>
-											     <li><b-btn @click="showTheme=true" class="popover-btn btn-outline-info">Change Color Theme</b-btn></li>
+											     <li><b-btn @click="showTheme=true" class="popover-btn btn-outline-info" v-close-popover>Change Color Theme</b-btn></li>
 											    </ul>
 											    <div class="popover-close-wrapper"><button type="button" class="close popover-close" aria-label="Close" v-close-popover>
 												  <span aria-hidden="true">&times;</span>
@@ -137,13 +132,19 @@
 
 				        <li>
 			        	<b-modal v-model="showChart"
-				             title="Change Chart Type">
+				             title="Change Chart Type"
+				             :header-bg-variant="headerBgVariant"
+				             :header-text-variant="headerTextVariant"
+				             :body-bg-variant="bodyBgVariant"
+				             :body-text-variant="bodyTextVariant"
+				             :footer-bg-variant="footerBgVariant"
+				             :footer-text-variant="footerTextVariant">
 					       <b-container fluid>
 					       	<b-row class="mb-1 text-center">
-					       		<b-col cols="12"><strong>For your data, we recommend using pie chart.</strong></b-col>
+					       		<b-col cols="12"><strong>For your data, we recommend using bar chart.</strong></b-col>
 					       	</b-row>
 					         <b-row class="mb-1 text-center">
-					           <b-col cols="3"> <input id="radio-1" name="radio" type="radio"><label  for="radio-2" class="radio-label"> Bar Chart</label></b-col>
+					           <b-col cols="3"> <input id="radio-1" name="radio" type="radio" checked><label  for="radio-2" class="radio-label"> Bar Chart</label></b-col>
 					           <b-col><img class="avatar" src="../assets/graph_bar.png" /></b-col>
 					         </b-row>
 					         <b-row class="mb-1">
@@ -153,7 +154,7 @@
 					       </b-container>
 					       <div slot="modal-footer" class="w-100">
 					         <p class="float-left"><strong>Generate New Graph</strong></p>
-					         <b-btn size="sm" class="float-right" variant="primary" @click="showNewGraph=true">
+					         <b-btn size="sm" class="float-right" variant="primary" @click="showNewGraph=true; showChart=false">
 					           Confirm
 					         </b-btn>
 					       </div>
@@ -162,7 +163,7 @@
 
 				        <li v-if="showThird" class="first lastQ">
 				            <div class="main self">
-				            		<div class="bubble you">What category of articles are the most popular in California? By total engagement (like, comments & shares) </div>
+				            		<div class="bubble you">Who are our top sellers in California?</div>
 					                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
 				            </div>
 				        </li>
@@ -176,31 +177,31 @@
 				             :body-text-variant="bodyTextVariant"
 				             :footer-bg-variant="footerBgVariant"
 				             :footer-text-variant="footerTextVariant">
-					       <b-container fluid>
-					         <b-row class="mb-1 text-center">
-					           <b-col cols="3"> </b-col>
-					           <b-col>Background</b-col>
-					           <b-col>Text</b-col>
-					         </b-row>
-					         <b-row class="mb-1">
-					           <b-col cols="3">Title</b-col>
-					           <b-col><b-form-select :options="variants" v-model="headerBgVariant" /></b-col>
-					           <b-col><b-form-select :options="variants" v-model="headerTextVariant" /></b-col>
-					         </b-row>
-					         <b-row class="mb-1">
-					           <b-col cols="3">Body</b-col>
-					           <b-col><b-form-select :options="variants" v-model="bodyBgVariant" /></b-col>
-					           <b-col><b-form-select :options="variants" v-model="bodyTextVariant" /></b-col>
-					         </b-row>
-					         <b-row>
-					           <b-col cols="3">Fields</b-col>
-					           <b-col><b-form-select :options="variants" v-model="footerBgVariant" /></b-col>
-					           <b-col><b-form-select :options="variants" v-model="footerTextVariant" /></b-col>
-					         </b-row>
-					       </b-container>
+
+
+					        <div class="">
+					            <div class="form theme-form">
+					                <label class="radio">
+					                    <input value="1" type="radio" name="theme" >      Company default
+					                </label>
+					                <img class="scheme" src="../assets/scheme1.png" />
+					                <label class="radio">
+					                    <input value="2" type="radio" name="theme">      Company Seasonal
+					                </label>
+					                <img class="scheme" src="../assets/scheme2.png" />
+					                <label class="radio">
+					                    <input value="3" type="radio" name="theme">      Colorful
+					                </label>
+					                <img class="scheme" src="../assets/scheme3.png" />
+					                <label class="radio">
+					                    <input value="4" type="radio" name="theme">      Simple
+					                </label>
+					                <img class="scheme" src="../assets/scheme4.png" />
+					            </div>
+					        </div>
 					       <div slot="modal-footer" class="w-100">
-					         <p class="float-left">Generate New Graph</p>
-					         <b-btn size="sm" class="float-right" variant="primary" @click="showNewColor=true">
+					         <p class="float-left"><strong>Generate New Graph</strong></p>
+					         <b-btn size="sm" class="float-right" variant="info" @click="showNewColor=true;showTheme=false">
 					           Confirm
 					         </b-btn>
 					       </div>
@@ -217,7 +218,7 @@
 					        <b-col><textarea class="col-10" placeholder="Enter your question here.." ></textarea></b-col>
 
 					       <!-- <b-col><form><input type="text" ref="my_input"></form></b-col> -->
-					        <b-col cols="4" class="add"><button type="submit" v-on:click="HScounter +=1" class="hs-button">></button><b-button type="submit" variant="primary"  v-on:click="counter +=1" class="send-button">Send</b-button></b-col>
+					        <b-col cols="4" class="add"><button type="submit" v-on:click="HScounter +=1" class="hs-button"><img src="../assets/sendflg.png" /></button><b-button type="submit" variant="primary"  v-on:click="counter +=1" class="send-button">Send</b-button></b-col>
 					    </b-row>
 					    
 					</div>
@@ -267,12 +268,12 @@ export default {
   		variants: [
         'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'dark'
 		],
-		headerBgVariant: 'dark',
+		headerBgVariant: 'info',
 		headerTextVariant: 'light',
 		bodyBgVariant: 'light',
 		bodyTextVariant: 'dark',
-		footerBgVariant: 'warning',
-		footerTextVariant: 'dark'
+		footerBgVariant: 'light',
+		footerTextVariant: 'info'
   	}
   },
   computed:{
@@ -303,6 +304,12 @@ export default {
 	display: inline-block;
 }
 
+.theme-form{
+	text-align: left;
+}
+.theme-form label{
+	display: block;
+}
 .hs-button{
 	background: none;
     border: none;

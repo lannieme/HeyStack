@@ -26,43 +26,43 @@
           <b-list-group>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">1. How many subscribers do we have this month?</h5>
+                <p class="mb-1 topQ">1. How many subscribers do we have this month?</p>
                 <small>3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">2. What is the most popular story of last year?</h5>
+                <p class="mb-1 topQ">2. What is the most popular story of last year?</p>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">3. What is the CAGR of our projected revenue in 5 years?</h5>
+                <p class="mb-1 topQ">3. What is the CAGR of our projected revenue in 5 years?</p>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Question 4</h5>
+                <p class="mb-1 topQ">Question 4</p>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Question 5</h5>
+                <p class="mb-1 topQ">Question 5</p>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Question 6</h5>
+                <p class="mb-1 topQ">Question 6</p>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Question 7</h5>
+                <p class="mb-1 topQ">Question 7</p>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
@@ -198,4 +198,7 @@ form input {
     border-color: #079992;
 }
 
+.topQ{
+  text-align: left;
+}
 </style>
