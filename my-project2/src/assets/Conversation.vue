@@ -63,7 +63,7 @@
 				            </p>
 				            <div class="main float-left panel-body">
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
-				                <div class="bubble me">
+				                <div class="bubble me chart">
 					                <div class="thumbnail">
 					                	<img class="avatar" src="../assets/graph.png" />
 					                	<div class="caption caption-left">
@@ -99,10 +99,10 @@
 				            </p>
 				            <div class="main float-left panel-body">
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
-				                <div class="bubble me">
+				                <div class="bubble me chart">
 				                	<p>Here is your new graph.</p>
 					                <div class="thumbnail">
-					                	<img class="avatar" src="../assets/graph.png" />
+					                	<img class="avatar" src="../assets/graph_color.png" />
 					                	<div class="caption caption-left">
 										<p>
 											<v-popover offset="16">
@@ -138,7 +138,7 @@
 					       	</b-row>
 					         <b-row class="mb-1 text-center">
 					           <b-col cols="3"> <input id="radio-1" name="radio" type="radio"><label  for="radio-2" class="radio-label"> Bar Chart</label></b-col>
-					           <b-col><img class="avatar" src="../assets/graph.png" /></b-col>
+					           <b-col><img class="avatar" src="../assets/graph_bar.png" /></b-col>
 					         </b-row>
 					         <b-row class="mb-1">
 					           <b-col cols="3"> <input id="radio-2" name="radio" type="radio"><label  for="radio-2" class="radio-label"> Pie Chart</label></b-col>
@@ -146,7 +146,7 @@
 					         </b-row>
 					       </b-container>
 					       <div slot="modal-footer" class="w-100">
-					         <p class="float-left">Generate New Graph</p>
+					         <p class="float-left"><strong>Generate New Graph</strong></p>
 					         <b-btn size="sm" class="float-right" variant="primary" @click="showNewGraph=true">
 					           Confirm
 					         </b-btn>
@@ -154,13 +154,13 @@
 					    </b-modal>
 				        </li>
 
-				        <li v-if="showThird" class="first">
-				            <p class="time">
-				                <span>10:29am</span>
-				            </p>
+				        <li v-if="showThird" class="first lastQ">
+				            
+				            
 				            <div class="main self">
-				                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
-				                <div class="bubble you">What category of articles are the most popular in California? By total engagement (like, comments & shares) </div>
+				            		<div class="bubble you">What category of articles are the most popular in California? By total engagement (like, comments & shares) </div>
+					                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
+					                
 				            </div>
 				        </li>
 
@@ -228,6 +228,9 @@
 	        	<div class="download" v-if="showSecond">
 	        		<img class="avatar" width="280px" src="../assets/downloadfile.png" />
 	        	</div>
+	        	<div class="download" v-if="showNewColor">
+	        		<img class="avatar" width="280px" src="../assets/downloadfile_2.png" />
+	        	</div>
 	    	</b-col>
     	</b-row>
 	</b-container>
@@ -292,6 +295,9 @@ export default {
 </script>
 
 <style>
+.lastQ{
+	display: inline-block;
+}
 .caption-left{
 	padding-top: 20px;
 	opacity: 0.9;
@@ -487,8 +493,8 @@ export default {
 }
 
 .me {
-    /*float: left; */  
-    margin: 5px 45px 5px 20px;         
+    margin: 5px 45px 5px 20px;  
+    text-align: left; 
 }
 
 .me::before {
@@ -496,10 +502,15 @@ export default {
     left: -9px;           
 }
 
+.me.chart{
+	text-align: center;
+}
+
 .you {
-    /*float: right; */
     background-color:#dbecff;   
-    margin: 5px 20px 5px 45px;         
+    margin: 5px 20px 5px 45px;    
+    text-align: left; 
+    max-width: 50%;    
 }
 
 .you::before {
