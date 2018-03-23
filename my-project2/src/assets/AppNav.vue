@@ -11,7 +11,7 @@
     <b-navbar-nav>
       <b-nav-item ><router-link to="/home">Home</router-link></b-nav-item>
       <b-nav-item href="#"><router-link to="/convo">Conversations</router-link></b-nav-item>
-      <b-nav-item href="#">Help</b-nav-item>
+      <b-nav-item href="#"><router-link to="/convo">Help</router-link></b-nav-item>
     </b-navbar-nav>
 
     <!-- Right aligned nav items -->
@@ -46,6 +46,11 @@
 }
 .border-bottom{
   border-bottom: 2px solid #E7E7E7  !important;
+}
+
+a:hover{
+   text-decoration: none;
+   color: #F9B550;
 }
 </style>
 

@@ -54,8 +54,29 @@
 				            </p>
 				            <div class="main float-left">
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
-				                <div class="bubble me">In 2017, the biggest audience are from California. </div><!-- 
+				                <div class="bubble me">In 2017, the biggest audience are from California. </br>I also generated a pie chart for you to better represent the data.</div><!-- 
 				                <div class="text">Hi, Alexis! How can I help you?</div> -->
+				            </div>
+				        </li>
+
+				        <li v-if="showSecond" >
+				            <p class="time">
+				                </br>
+				            </p>
+				            <div class="main float-left">
+				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
+				                <div class="bubble me"><img class="avatar" src="../assets/graph.png" /></div><!-- 
+				                <div class="text">Hi, Alexis! How can I help you?</div> -->
+				            </div>
+				        </li>
+
+				        <li v-if="showThird" class="first">
+				            <p class="time">
+				                <span>10:29am</span>
+				            </p>
+				            <div class="main self">
+				                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
+				                <div class="bubble you">What category of articles are the most popular in California? By total engagement (like, comments & shares) </div>
 				            </div>
 				        </li>
 
@@ -81,7 +102,9 @@
 		        	<div class="flex-item files border-bottom">Files</div>
 		        	<div class="flex-item">Profile</div>
 	        	</div>
-	        	
+	        	<div class="download" v-if="showSecond">
+	        		<img class="avatar" width="280px" src="../assets/downloadfile.png" />
+	        	</div>
 	    	</b-col>
     	</b-row>
 	</b-container>
@@ -105,7 +128,10 @@ export default {
   	},
   	showSecond(){
   		return this.counter > 1? true: false;
-  	}
+  	},
+  	showThird(){
+  		return this.counter > 2? true: false;
+  	},
   },
   methods:{
     getFormValues () {
@@ -118,6 +144,10 @@ export default {
 </script>
 
 <style>
+
+.download{
+	margin-top: 20px;
+}
 
 .send-button{
   float: right;
@@ -155,6 +185,10 @@ export default {
 .main-convo li{
 	display: list-item;
 
+}
+
+.time{
+	margin-top: 10px;
 }
 
 .text {
