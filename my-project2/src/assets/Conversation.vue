@@ -67,7 +67,7 @@
 	        		<div class="sendtext">
 	        			<b-row class="text-center">
 					        <b-col cols="1" class="add"><img width="25" height="25" src="../assets/add.png" /></b-col>
-					        <b-col><textarea class="col-10" placeholder="Enter your question here.." v-model="content" @keyup="onKeyup" ></textarea></b-col>
+					        <b-col><textarea class="col-10" placeholder="Enter your question here.." ></textarea></b-col>
 
 					       <!-- <b-col><form><input type="text" ref="my_input"></form></b-col> -->
 					        <b-col cols="4" class="add"><b-button type="submit" variant="primary"  v-on:click="counter +=1" class="send-button">Send</b-button></b-col>
@@ -144,7 +144,7 @@ export default {
 }
 
 .main-convo {
-	height: 300px;
+	height: 500px;
 	overflow-y: scroll;
 
 }
