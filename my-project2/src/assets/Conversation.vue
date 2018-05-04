@@ -27,8 +27,8 @@
 				            </div>
 				        </li>
 
-				    	<delay :wait="000">
-				        <li v-if="showSecond" >
+				    	<delay :wait="17000">
+				        <li v-if="showFirst" >
 				            <p class="time">
 				                <span>10:27am</span>
 				            </p>
@@ -50,7 +50,8 @@
 				            </div>
 				        </li>
 
-				        <li v-if="showFourth" >
+				        <delay :wait="32000">
+				        <li v-if="showThird" >
 				            <p class="time">
 				                <span>10:28am</span>
 				            </p>
@@ -59,8 +60,10 @@
 				                <div class="bubble me">+6.18% (+$2,195,423) </br>I also generated a bar chart for you to better represent the data.</div>
 				            </div>
 				        </li>
+				    	</delay>
 
-				        <li v-if="showFourth"  class="panel">
+				    	<delay :wait="32500">
+				        <li v-if="showThird"  class="panel">
 				            <p class="time">
 				                </br>
 				            </p>
@@ -68,7 +71,7 @@
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
 				                <div class="bubble me chart">
 					                <div class="thumbnail">
-					                	<img class="" src="../assets/graph.png" />
+					                	<img class="" src="../assets/RevenueByMonth.png" />
 					                	<div class="caption caption-left">
 										<p> <strong>Based on your data, we recommend line graph.</strong></p>
 										<p>
@@ -84,7 +87,7 @@
 												</button></div>
 											  </template>
 											</v-popover>
-											<a href="/dist/graph.png" download class="btn btn-primary" role="button">
+											<a href="/dist/RevenueByMonth.png" download class="btn btn-primary" role="button">
 											Download
 											</a> 
 										</p>
@@ -94,6 +97,7 @@
 				                
 				            </div>
 				        </li>
+				    	</delay>
 
 <!-- 				        <li v-if="showNewColor"  class="panel">
 				            <p class="time">
@@ -147,7 +151,7 @@
 					       	</b-row>
 					         <b-row class="mb-1 text-center">
 					           <b-col cols="3"> <input id="radio-1" name="radio" type="radio" checked><label  for="radio-2" class="radio-label"> Bar Chart</label></b-col>
-					           <b-col><img class="" src="../assets/graph_bar.png" /></b-col>
+					           <b-col><img class="" src="../assets/RevenueByMonth.png" /></b-col>
 					         </b-row>
 					         <b-row class="mb-1">
 					           <b-col cols="3"> <input id="radio-2" name="radio" type="radio"><label  for="radio-2" class="radio-label"> Pie Chart</label></b-col>
@@ -177,7 +181,8 @@
 				            </div>
 				        </li>
 
-				        <li v-if="showSeventh" >
+				        <delay :wait="41000">
+				        <li v-if="showFifth" >
 				            <p class="time">
 				                <span>10:30am</span>
 				            </p>
@@ -186,6 +191,7 @@
 				                <div class="bubble me">www.cnn.com</div>
 				            </div>
 				        </li>
+				    	</delay>
 
 				        <li>
 			        	<b-modal v-model="showTheme"
@@ -255,9 +261,11 @@
 		        	<div class="flex-item files border-bottom">Files</div>
 		        	<div class="flex-item">Profile</div>
 	        	</div>
-	        	<div class="download" v-if="showFourth">
-	        		<a href="/dist/graph.png" download><img class="" width="280px" src="../assets/downloadfile.png" /></a>
+	        	<delay :wait="32500">
+	        	<div class="download">
+	        		<a href="/dist/RevenueByMonth.png" download><img class="" width="280px" src="../assets/downloadfile.png" /></a>
 	        	</div>
+	        	</delay>
 	        	<div class="download" v-if="showNewColor">
 	        		<a href="/dist/graph_color.png" download><img class="" width="280px" src="../assets/downloadfile_2.png" /></a>
 	        	</div>
@@ -340,7 +348,6 @@ export default {
      }
   }
 }
-
 
 </script>
 
