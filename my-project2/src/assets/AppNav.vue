@@ -19,8 +19,8 @@
       <b-nav-item-dropdown right>
         <!-- Using button-content slot -->
         <template slot="button-content">
-          <em>Alexis S.</em>
-          <img src="../assets/user-avatar.png" class="appnav__logo">
+          <em>Kaditya N.</em>
+          <img src="../assets/user-avatar.png" class="appnav__logo user_avatar">
         </template>
         <b-dropdown-item href="#">Profile</b-dropdown-item>
         <b-dropdown-item href="#">Log out</b-dropdown-item>
@@ -37,12 +37,18 @@
 </script>
 
 <style>
+.user_avatar{
+  width: 61px;
+  height: 61px;
+}
 .nav-link:hover, .nav-link:active{
   color: #38ADA9!;
 }
 
 .navbar {
   margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 800;
 }
 .border-bottom{
   border-bottom: 2px solid #E7E7E7  !important;

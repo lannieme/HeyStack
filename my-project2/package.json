@@ -17,9 +17,11 @@
     "vue": "^2.5.3",
     "vue-awesome": "^2.3.5",
     "vue-chat-scroll": "^1.2.1",
+    "vue-delay": "^0.1.0",
     "vue-popover": "^1.6.2",
     "vue-popper-component": "^0.1.0",
     "vue-router": "^3.0.1",
+    "vuetify": "^1.0.10",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

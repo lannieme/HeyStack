@@ -2,68 +2,75 @@
     <b-container>
       <b-row>
         <b-col cols="8">
-        <div class="float-left"><h3>Ask HeyStack</h3></div><br>
+        <!-- <div class="float-left"><h4>Ask HeyStack</h4></div><br> -->
         <div class="callout clear-fix">
           <div class="callout_avatar ">
             <img src="../assets/HSavatar-callout.png">
           </div>
           <div class="callout_form">
             <b-form @submit="onSubmit">
-              <b-form-input v-model="form.question" required
+              <!-- <b-form-input v-model="form.question" required
                     type="text"
-                    placeholder="Enter your questions here.."></b-form-input>
-              <b-button type="submit" variant="primary" class="callout_form--button">Send</b-button>
+                    placeholder="Enter your questions here.."></b-form-input> -->
+              <b-button type="submit" variant="primary" class="callout_form--button">Chat with HeyStack</b-button>
           </b-form>
           </div>
         </div>
         <div class="past_Conversation">
-          <div class="float-left"><h3>Past Conversations</h3></div><br>
+          <div class="float-left"><h4>Past Conversations</h4></div><br>
           <PastConvo></PastConvo>
         </div>
         </b-col>
-        <b-col cols="4">
-          <h5>Top 20 Frequently Asked Questions</h5>
+        <b-col cols="4" class="rightSide">
+          <h5 class="topQ_header">Top 10 Frequently Asked Questions</h5>
           <b-list-group>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <p class="mb-1 topQ">1. How many subscribers do we have this month?</p>
-                <small>3 days ago</small>
+                <small>1 month ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <p class="mb-1 topQ">2. What is the most popular story of last year?</p>
-                <small class="text-muted">3 days ago</small>
+                <small class="text-muted">23 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <p class="mb-1 topQ">3. What is the CAGR of our projected revenue in 5 years?</p>
+                <small class="text-muted">17 days ago</small>
+              </div>
+            </b-list-group-item>
+            <b-list-group-item href="#" class="flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <p class="mb-1 topQ">4. What is the engagement rate for the last quarter?</p>
+                <small class="text-muted">24 days ago</small>
+              </div>
+            </b-list-group-item>
+            <b-list-group-item href="#" class="flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <p class="mb-1 topQ">5. Who are the top subscriber?</p>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1 topQ">Question 4</p>
-                <small class="text-muted">3 days ago</small>
+                <p class="mb-1 topQ">6. Distribution channel analysis</p>
+                <small class="text-muted">12 days ago</small>
               </div>
             </b-list-group-item>
             <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1 topQ">Question 5</p>
+                <p class="mb-1 topQ">7. Trending author</p>
                 <small class="text-muted">3 days ago</small>
               </div>
             </b-list-group-item>
-            <b-list-group-item href="#" class="flex-column align-items-start">
+          </b-list-group>
+          <b-list-group-item href="#" class="flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1 topQ">Question 6</p>
-                <small class="text-muted">3 days ago</small>
-              </div>
-            </b-list-group-item>
-            <b-list-group-item href="#" class="flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1 topQ">Question 7</p>
-                <small class="text-muted">3 days ago</small>
+                <p class="mb-1 topQ">8. Advertisement</p>
+                <small class="text-muted">1 days ago</small>
               </div>
             </b-list-group-item>
           </b-list-group>
@@ -146,7 +153,7 @@ a {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  width: 500px;
+  /*width: 500px;*/
 }
 
 form {
@@ -162,7 +169,10 @@ form input {
   margin-top: 20px;
   background-color: #079992;
   border-color: #079992;
+  width: 500px;
+  height: 50px;
 }
+
 
 .callout_form--button:hover{
   margin-top: 20px;
@@ -200,5 +210,12 @@ form input {
 
 .topQ{
   text-align: left;
+}
+
+.rightSide .list-group-item {
+  margin-bottom: 5px;
+}
+.topQ_header{
+  margin-bottom: 30px;
 }
 </style>

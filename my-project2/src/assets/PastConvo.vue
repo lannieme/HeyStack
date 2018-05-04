@@ -61,6 +61,12 @@ var options = {
 </script>
 
 <style>
+/* temp fix */
+.past-convo .d-flex>*,.past-convo .d-inline-flex>* {
+    flex: none !important;
+}
+
+
 h1 {
   text-align:center;
 }

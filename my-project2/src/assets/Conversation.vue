@@ -6,7 +6,7 @@
 	        		<div class="flex-item">
 	        			<img src="../assets/backoption.png" class="backoption">
 	        		</div>
-	        		<div class="flex-item">Health of published articles</div>
+	        		<div class="flex-item">Revenue Growth</div>
 		        	<div class="flex-item setting_bar">
 		        		<img src="../assets/setting-bar.png" class="setting-bar">
 		        	</div>
@@ -14,50 +14,53 @@
 
 	        	<div class="main-convo" ref="main-convo" v-chat-scroll>
 	        		<ul v-chat-scroll>
-				        <li>
+	        			
+	        				
+				        <li v-if="showFirst" class="first">
 				            <p class="time">
 				                <span>10:27am</span>
 				            </p>
 				            <div class="main self">
-				                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
+				                <img class="avatar" width="50" height="50" src="../assets/user-avatar.png" />
 				                <!-- <div class="text">Hey,Stack!</div> -->
 				                <div class="bubble you">Hey,Stack!</div>
 				            </div>
 				        </li>
 
-				        <li>
+				    	<delay :wait="000">
+				        <li v-if="showSecond" >
 				            <p class="time">
 				                <span>10:27am</span>
 				            </p>
 				            <div class="main float-left">
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
-				                <div class="bubble me">Hi, Alexis! How can I help you?</div>
+				                <div class="bubble me">Hi, Kaditya! How can I help you?</div>
 				            </div>
 				        </li>
+				    	</delay>
 
 
-				        <li v-if="showFirst" class="first">
+				        <li v-if="showThird" class="first">
 				            <p class="time">
 				                </br>
 				            </p>
 				            <div class="main self">
-				                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
-				                <div class="bubble you">In which state did we generate the most revenue last month?</div>
+				                <img class="avatar" width="50" height="50" src="../assets/user-avatar.png" />
+				                <div class="bubble you">What was our revenue growth last month?</div>
 				            </div>
 				        </li>
 
-				        <li v-if="showSecond" >
+				        <li v-if="showFourth" >
 				            <p class="time">
 				                <span>10:28am</span>
 				            </p>
 				            <div class="main float-left">
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
-				                <div class="bubble me">Last month, California generated the most revenue - 40%. </br>I also generated a bar chart for you to better represent the data.</div><!-- 
-				                <div class="text">Hi, Alexis! How can I help you?</div> -->
+				                <div class="bubble me">+6.18% (+$2,195,423) </br>I also generated a bar chart for you to better represent the data.</div>
 				            </div>
 				        </li>
 
-				        <li v-if="showSecond"  class="panel">
+				        <li v-if="showFourth"  class="panel">
 				            <p class="time">
 				                </br>
 				            </p>
@@ -65,9 +68,9 @@
 				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
 				                <div class="bubble me chart">
 					                <div class="thumbnail">
-					                	<img class="avatar" src="../assets/graph_bar.png" />
+					                	<img class="" src="../assets/graph.png" />
 					                	<div class="caption caption-left">
-										<p> <strong>Based on your data, we recommend bar chart.</strong></p>
+										<p> <strong>Based on your data, we recommend line graph.</strong></p>
 										<p>
 											<v-popover offset="16">
 											  <b-btn class="tooltip-target btn btn-primary" role="button">Edit</b-btn> 
@@ -92,7 +95,7 @@
 				            </div>
 				        </li>
 
-				        <li v-if="showNewColor"  class="panel">
+<!-- 				        <li v-if="showNewColor"  class="panel">
 				            <p class="time">
 				                </br>
 				            </p>
@@ -101,7 +104,7 @@
 				                <div class="bubble me chart">
 				                	<p>Here is your new graph.</p>
 					                <div class="thumbnail">
-					                	<img class="avatar" src="../assets/graph_color.png" />
+					                	<img class="" src="../assets/graph_color.png" />
 					                	<div class="caption caption-left">
 										<p>
 											<v-popover offset="16">
@@ -124,11 +127,10 @@
 										</p>
 										</div>
 					                </div>
-				                </div><!-- 
-				                <div class="text">Hi, Alexis! How can I help you?</div> -->
+				                </div>
 				                
 				            </div>
-				        </li>
+				        </li> -->
 
 				        <li>
 			        	<b-modal v-model="showChart"
@@ -145,11 +147,11 @@
 					       	</b-row>
 					         <b-row class="mb-1 text-center">
 					           <b-col cols="3"> <input id="radio-1" name="radio" type="radio" checked><label  for="radio-2" class="radio-label"> Bar Chart</label></b-col>
-					           <b-col><img class="avatar" src="../assets/graph_bar.png" /></b-col>
+					           <b-col><img class="" src="../assets/graph_bar.png" /></b-col>
 					         </b-row>
 					         <b-row class="mb-1">
 					           <b-col cols="3"> <input id="radio-2" name="radio" type="radio"><label  for="radio-2" class="radio-label"> Pie Chart</label></b-col>
-					           <b-col><img class="avatar" src="../assets/graph.png" /></b-col>
+					           <b-col><img class="" src="../assets/graph.png" /></b-col>
 					         </b-row>
 					       </b-container>
 					       <div slot="modal-footer" class="w-100">
@@ -161,10 +163,27 @@
 					    </b-modal>
 				        </li>
 
-				        <li v-if="showThird" class="first lastQ">
+				       <!--  <li v-if="showFifth" class="first lastQ">
 				            <div class="main self">
-				            		<div class="bubble you">Who are our top sellers in California?</div>
-					                <img class="avatar" width="50" height="50" src="../assets/avatar.png" />
+				            		<div class="bubble you">Thanks!</div>
+					                <img class="avatar" width="50" height="50" src="../assets/user-avatar.png" />
+				            </div>
+				        </li> -->
+
+				        <li v-if="showFifth" class="first lastQ">
+				            <div class="main self">
+				            		<div class="bubble you">What parent website drove the most traffic in terms of revenue?</div>
+					                <img class="avatar" width="50" height="50" src="../assets/user-avatar.png" />
+				            </div>
+				        </li>
+
+				        <li v-if="showSeventh" >
+				            <p class="time">
+				                <span>10:30am</span>
+				            </p>
+				            <div class="main float-left">
+				                <img class="avatar" width="50" height="50" src="../assets/HSavatar60.png" />
+				                <div class="bubble me">www.cnn.com</div>
 				            </div>
 				        </li>
 
@@ -215,10 +234,17 @@
 	        		<div class="sendtext">
 	        			<b-row class="text-center">
 					        <b-col cols="1" class="add"><img width="25" height="25" src="../assets/add.png" /></b-col>
-					        <b-col><textarea class="col-10" placeholder="Enter your question here.." ></textarea></b-col>
+					        <b-col><!-- <textarea class="col-10" placeholder="Enter your question here.." ></textarea> -->
+					        <v-text-field class="col-10"
+						       v-model.trim="newTitle" 
+						       label="Enter your question here.." 
+						        @keyup.enter="onCreateProject()"
+						       >
+						     </v-text-field>
+					    	</b-col>
 
 					       <!-- <b-col><form><input type="text" ref="my_input"></form></b-col> -->
-					        <b-col cols="4" class="add"><button type="submit" v-on:click="HScounter +=1" class="hs-button"><img src="../assets/sendflg.png" /></button><b-button type="submit" variant="primary"  v-on:click="counter +=1" class="send-button">Send</b-button></b-col>
+					        <b-col cols="4" class="add"><button type="submit" v-on:click="HScounter +=1" class="hs-button"><img src="../assets/sendflg.png" /></button><b-button type="submit" variant="primary"  v-on:click="counter +=1;onCreateProject()" class="send-button">Send</b-button></b-col>
 					    </b-row>
 					    
 					</div>
@@ -229,11 +255,11 @@
 		        	<div class="flex-item files border-bottom">Files</div>
 		        	<div class="flex-item">Profile</div>
 	        	</div>
-	        	<div class="download" v-if="showSecond">
-	        		<a href="/dist/graph.png" download><img class="avatar" width="280px" src="../assets/downloadfile.png" /></a>
+	        	<div class="download" v-if="showFourth">
+	        		<a href="/dist/graph.png" download><img class="" width="280px" src="../assets/downloadfile.png" /></a>
 	        	</div>
 	        	<div class="download" v-if="showNewColor">
-	        		<a href="/dist/graph_color.png" download><img class="avatar" width="280px" src="../assets/downloadfile_2.png" /></a>
+	        		<a href="/dist/graph_color.png" download><img class="" width="280px" src="../assets/downloadfile_2.png" /></a>
 	        	</div>
 	    	</b-col>
     	</b-row>
@@ -245,6 +271,7 @@
 import VuePopper from 'vue-popper-component'
 import popover from 'vue-popover'
 import VTooltip from 'v-tooltip'
+import 'vuetify/dist/vuetify.min.css'  
 
 export default {
   name: 'conversation',
@@ -265,6 +292,7 @@ export default {
   		showTheme: false,
   		showNewColor: false,
   		showNewGraph: false,
+  		newTitle:'',
   		variants: [
         'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'dark'
 		],
@@ -286,6 +314,18 @@ export default {
   	showThird(){
   		return this.counter > 1? true: false;
   	},
+  	showFourth(){
+  		return this.HScounter > 1? true: false;
+  	},
+  	showFifth(){
+  		return this.counter > 2? true: false;
+  	},
+  	showSixth(){
+  		return this.counter > 3? true:false;
+  	},
+  	showSeventh(){
+  		return this.HScounter > 2? true: false;
+  	},
   },
   methods:{
     // scrollToEnd: function() {    	
@@ -293,6 +333,11 @@ export default {
     //   // console.log(this.$refs);
     //   container.scrollTop = container.scrollHeight;
     // },
+    onCreateProject () {
+    	console.log("hey");
+       console.log(this.newTitle);
+       this.newTitle = '';
+     }
   }
 }
 
@@ -316,10 +361,11 @@ export default {
     cursor: default !important;
     color: black;
     outline:none;
+    float: right;
 }
 .hs-button:hover{
-	/*background: none;
-    border: none;*/
+	background: none;
+    border: none;
     cursor: default !important;
     
     background-color: Transparent;
@@ -327,6 +373,11 @@ export default {
     border: none;
     overflow: hidden;
     outline:none;
+}
+.hs-button:active, .hs-button:focus{
+	outline: none !important;
+	box-shadow: none;
+
 }
 .caption-left{
 	padding-top: 20px;

@@ -6,6 +6,11 @@ import "bootstrap-vue/dist/bootstrap-vue.css"
 import router from './router'
 import VueChatScroll from 'vue-chat-scroll'
 import VTooltip from 'v-tooltip'
+import Vuetify from 'vuetify'
+import Delay from 'vue-delay'
+
+Vue.use(Vuetify)
+Vue.use(Delay)
 
 Vue.use(VTooltip)
 Vue.use(VueChatScroll)
